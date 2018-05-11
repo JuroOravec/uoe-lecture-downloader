@@ -1,4 +1,6 @@
 {
+  "name": "uoe-lecture-downloader",
+  "version": "0.0.0",
   "dependencies": {
     "babel-preset-airbnb": "^2.4.0",
     "node-sass": "^4.9.0",
