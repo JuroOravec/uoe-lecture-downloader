@@ -1,0 +1,6 @@
+{
+    "name": "UoE Lecture Downloader",
+    "version": "0.0.0",
+    "description": "Download lectures from Media Hopper Replay with a click of a button. For those who want to watch lectures offline. To access Media Hopper Replay, you must a student at the University of Edinburgh. For personal use only.",
+    "manifest_version": 2
+}

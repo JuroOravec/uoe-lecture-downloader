@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "babel-preset-airbnb": "^2.4.0",
+    "node-sass": "^4.9.0",
+    "parcel-bundler": "^1.8.1"
+  },
+  "scripts": {
+    "start": "parcel src/html/index.html --open 'Google Chrome'",
+    "build": "parcel build src/html/index.html"
+  }
+}
