@@ -1,0 +1,11 @@
+<!--
+    arguments to be replaced:
+    - nameEscaped // == video.name.toLowercase().replace(' ', '-')
+    - res // in this case, size is the smaller of the 2 dimensions (e.g 360p)
+    - s3Url // url of this version of video
+-->
+
+<label class="option" tabindex="0">
+    <input type="checkbox" name="${nameEscaped}-${res}" value="res-${res}-size-${size}-url-${s3Url}">
+    <span>${res}</span>
+</label>

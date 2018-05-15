@@ -10,7 +10,8 @@ module.exports = {
     entry: {
         background: "./src/js/background.js",
         popup: "./src/js/popup.js",
-        manifest: "./src/json/manifest.json"
+        manifest: "./src/json/manifest.json",
+        videoSrcFetcher: "./src/js/videoSrcFetcher.js"
     },
     output: {
         path: path.resolve(__dirname, 'dist')
@@ -54,15 +55,8 @@ module.exports = {
             }, {
                 test: /\.html$/,
                 use: [{
-                        loader: 'file-loader', // create a html file
-                    },
-                    {
-                        loader: 'extract-loader', // require resources
-                    },
-                    {
-                        loader: 'html-loader' // convert html file to string
-                    }
-                ]
+                    loader: 'html-loader' // convert html file to string
+                }]
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
@@ -86,8 +80,13 @@ module.exports = {
         }]),
         new HtmlWebpackPlugin({
             title: 'UoE Lecture Downloader',
-            filename: 'popup.html'
-        })
+            filename: 'popup.html',
+            excludeChunks: ['videoSrcFetcher'],
+            minify: {
+                collapseWhitespace: true,
+                conservativeCollapse: false
+            }
+        }),
     ],
     optimization: {
         minimizer: [

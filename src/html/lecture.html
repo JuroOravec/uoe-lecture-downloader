@@ -1,0 +1,21 @@
+<!--
+    arguments to be replaced:
+    - videoUrl
+    - name
+    - thumbnailUrl
+-->
+<div class="lecture">
+    <a href="${videoUrl}" title="${name}" target="_blank" tabindex="0">
+        <img class="lecture-thumbnail" src="${thumbnailUrl}" alt="${name}">
+    </a>
+    <div class="lecture-desc">
+        <h3 class="lecture-title">${name}</h3>
+        <div class="download-options">
+        </div>
+        <div class="download">
+            <button class="download-button" disabled tabindex="0">Download!</button>
+            <div class="download-size"></div>
+        </div>
+    </div>
+</div>
+<hr>

@@ -1,0 +1,87 @@
+// variables
+$color-active: #6791c1;
+$color-transitions: background 0.2s,
+color 0.2s,
+border-color 0.2s;
+// mixins
+%text-shared {
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    transition: $color-transitions;
+}
+
+.lecture-thumbnail {
+    max-width: 150px;
+    max-height: 100px;
+}
+
+.lecture-desc {
+    display: inline-flex;
+    max-width: calc(100% - 170px);
+    flex-wrap: wrap;
+    vertical-align: top;
+    margin-left: 10px;
+}
+
+.lecture-title {
+    flex: 1 1 100%;
+    margin-top: 0px;
+}
+
+.download-options {
+    flex: auto;
+    display: inline-flex;
+    flex-wrap: wrap;
+    max-width: 50%;
+}
+
+.option {
+    margin-right: 5px;
+    cursor: pointer;
+    height: 19px;
+    input[type="checkbox"] {
+        display: none;
+    }
+    span {
+        @extend %text-shared;
+        background: #f5f5f5;
+        padding: 2px 5px;
+        border: 1px #d0d0d0 solid;
+        position: relative;
+        top: calc(2px / 2);
+    }
+    input[type="checkbox"]:checked~span {
+        background: #a3dbff;
+        border-color: $color-active;
+    }
+}
+
+.download {
+    text-align: center;
+    .download-button {
+        @extend %text-shared;
+        background: #a3dbff;
+        height: 30px;
+        border: 0px solid $color-active;
+        cursor: pointer;
+    }
+    .download-button:disabled {
+        background: #e6e6e6;
+        color: #999;
+        transition: $color-transitions;
+    }
+    .download-size {
+        margin-top: 5px;
+        font-family: sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        color: #555;
+        opacity: 1;
+        transition: 0.2s opacity;
+    }
+    .download-size~download-button:disabled {
+        opacity: 0;
+    }
+}
