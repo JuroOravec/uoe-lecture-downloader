@@ -1,7 +1,7 @@
 {
-    "name": "UoE Media Hopper Replay Lectures Offline",
-    "short_name": "UoE Lectures Offline",
-    "version": "1.0.1",
+    "name": "UoE Lecture Downloader",
+    "short_name": "UoE Lecture Downloader",
+    "version": "1.0.2",
     "description": "Study for your exams with no Internet connection! Download your lectures on University of Edinburgh's Media Hopper Replay.",
     "manifest_version": 2,
     "background": {
