@@ -11,7 +11,7 @@ module.exports = {
         background: "./src/js/background.js",
         popup: "./src/js/popup.js",
         manifest: "./src/json/manifest.json",
-        videoSrcFetcher: "./src/js/videoSrcFetcher.js"
+        contentScript: "./src/js/contentScript.js"
     },
     output: {
         path: path.resolve(__dirname, 'dist')
@@ -79,9 +79,9 @@ module.exports = {
             flatten: true
         }]),
         new HtmlWebpackPlugin({
-            title: 'UoE Lecture Downloader',
+            title: 'Echo360 Lecture Downloader',
             filename: 'popup.html',
-            excludeChunks: ['videoSrcFetcher'],
+            excludeChunks: ['contentScript'],
             minify: {
                 collapseWhitespace: true,
                 conservativeCollapse: false

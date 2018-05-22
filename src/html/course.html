@@ -1,12 +1,35 @@
-<!--
-    Arguments to be replaced:
-    - courseId
-    - courseTitle
--->
-<div class="course-container" id="${courseId}">
+<div class="course" id="course-${courseId}">
     <div class="course-title-container">
         <h3 class="course-title">${courseName}</h3>
     </div>
-    <div class="lectures-container">
+    <hr>
+    <div class="course-select">
+        <span>
+            <span class="lecture-count"></span> Lectures</span>
+        <div class="select-wrap select-by-format" role="checkboxgroup">
+        </div>
+        <div class="select-wrap select-by-seen" role="radiogroup">
+            <label class="group-option select-option" tabindex="0" role="radio">
+                <input type="radio" value="all" name="group-select-${courseId}" tabindex="-1" checked>
+                <div>
+                    <span>All</span>
+                </div>
+            </label>
+            <label class="group-option select-option" tabindex="0" role="radio">
+                <input type="radio" value="seen" name="group-select-${courseId}" tabindex="-1">
+                <div>
+                    <span>Seen</span>
+                </div>
+            </label>
+            <label class="group-option select-option" tabindex="0" role="radio">
+                <input type="radio" value="unseen" name="group-select-${courseId}" tabindex="-1">
+                <div>
+                    <span>Unseen</span>
+                </div>
+            </label>
+        </div>
+    </div>
+    <hr>
+    <div class="lectures">
     </div>
 </div>

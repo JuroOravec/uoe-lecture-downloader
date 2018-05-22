@@ -5,21 +5,66 @@ color 0.2s,
 border-color 0.2s;
 // mixins
 %text-shared {
-    font-family: sans-serif;
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-size: 12px;
     font-weight: bold;
     color: #333;
     transition: $color-transitions;
 }
 
-.lecture-thumbnail {
-    max-width: 150px;
-    max-height: 100px;
+.lecture {
+    width: calc(100% - 20px);
+    margin: auto;
+    position: relative;
+    .seen-state {
+        position: absolute;
+        z-index: 10;
+        display: none;
+        padding: 3px 6px;
+        top: 2px;
+        @extend %text-shared;
+        font-size: 9px;
+    }
+}
+
+.lecture.seen {
+    .seen-state {
+        display: inherit;
+        background: lightblue;
+    }
+}
+
+.lecture.unseen {
+    .seen-state {
+        display: inherit;
+        background: lightsalmon;
+    }
+}
+
+.lecture a {
+    display: inline-flex;
+    align-items: baseline;
+    margin-top: 2px;
+    outline: none;
+    box-sizing: border-box;
+    max-width: 122px;
+    max-height: 69px;
+    transition: filter 0.2s ease-in, outline 0.2s ease-in;
+    .lecture-thumbnail {
+        max-width: 122px;
+        max-height: 69px;
+    }
+}
+
+.lecture a:focus,
+.lecture a:hover {
+    filter: brightness(109%);
+    outline: 1px solid grey;
 }
 
 .lecture-desc {
     display: inline-flex;
-    max-width: calc(100% - 170px);
+    max-width: calc(100% - 136px);
     flex-wrap: wrap;
     vertical-align: top;
     margin-left: 10px;
@@ -28,60 +73,97 @@ border-color 0.2s;
 .lecture-title {
     flex: 1 1 100%;
     margin-top: 0px;
+    margin-bottom: 6px;
 }
 
 .download-options {
     flex: auto;
     display: inline-flex;
     flex-wrap: wrap;
+    flex-direction: row;
     max-width: 50%;
 }
 
 .option {
-    margin-right: 5px;
+    margin: 3px 4px 4px;
     cursor: pointer;
     height: 19px;
+    width: 100%;
+    max-width: 48px;
+    color: #283842;
     input[type="checkbox"] {
         display: none;
     }
-    span {
+    div {
         @extend %text-shared;
         background: #f5f5f5;
-        padding: 2px 5px;
-        border: 1px #d0d0d0 solid;
-        position: relative;
-        top: calc(2px / 2);
+        padding: 2px 0px;
+        border: 1px #e4e4e4 solid;
+        border-radius: 3px;
+        width: 100%;
+        text-align: center;
     }
-    input[type="checkbox"]:checked~span {
-        background: #a3dbff;
-        border-color: $color-active;
+    input[type="checkbox"]:checked~div {
+        background: #a0daff;
+        border-color: #6cc6ff;
+    }
+}
+
+.option:focus,
+.option:hover {
+    outline: none;
+    div {
+        background: #caebff
+    }
+    input[type="checkbox"]:checked~div {
+        background: #52bdff;
     }
 }
 
 .download {
     text-align: center;
-    .download-button {
+    flex: 1 0 auto;
+    padding: 0 0 2px 10px;
+    .download-btn {
+        outline: none;
         @extend %text-shared;
-        background: #a3dbff;
-        height: 30px;
+        font-size: 11px;
+        background: #009bff;
+        color: white;
+        height: 100%;
+        width: 100%;
         border: 0px solid $color-active;
+        border-radius: 3px;
         cursor: pointer;
-    }
-    .download-button:disabled {
-        background: #e6e6e6;
-        color: #999;
+        letter-spacing: 0.5px;
         transition: $color-transitions;
     }
-    .download-size {
-        margin-top: 5px;
-        font-family: sans-serif;
-        font-size: 11px;
-        font-weight: 700;
-        color: #555;
-        opacity: 1;
-        transition: 0.2s opacity;
+    .download-btn:focus,
+    .download-btn:hover {
+        background: #017bca;
     }
-    .download-size~download-button:disabled {
+    .download-btn:disabled {
+        background: white;
+        color: #b5b5b5;
+        border: 1px #d0d0d0 solid;
+    }
+    .download-size {
+        display: block;
+        height: 0;
+        font-size: 10px;
         opacity: 0;
+        margin-top: 0;
+        transition: 0.2s opacity, 0.2s height, 0.2s margin;
+    }
+    .download-size~download-btn:disabled {
+        opacity: 0;
+    }
+}
+
+.download.active {
+    .download-size {
+        opacity: 1;
+        height: 10px;
+        margin-top: 5px;
     }
 }

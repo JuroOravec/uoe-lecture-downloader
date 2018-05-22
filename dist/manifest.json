@@ -1,8 +1,8 @@
 {
-    "name": "UoE Lecture Downloader",
-    "short_name": "UoE Lecture Downloader",
-    "version": "1.0.2",
-    "description": "Study for your exams with no Internet connection! Download your lectures on University of Edinburgh's Media Hopper Replay.",
+    "name": "Echo360 Lecture Downloader",
+    "short_name": "Echo360 Lecture Downloader",
+    "version": "1.1.0",
+    "description": "Study for your exams with no Internet connection! Download your lectures for offline use.",
     "manifest_version": 2,
     "background": {
         "scripts": ["background.js"],
@@ -11,7 +11,7 @@
     "content_scripts": [{
         "matches": ["https://echo360.org.uk/*"],
         "all_frames": true,
-        "js": ["videoSrcFetcher.js"],
+        "js": ["contentScript.js"],
         "run_at": "document_idle"
     }],
     "permissions": [

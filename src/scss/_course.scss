@@ -1,0 +1,63 @@
+// variables
+$color-active: #6791c1;
+$color-transitions: background 0.2s,
+color 0.2s,
+border-color 0.2s;
+// mixins
+%text-shared {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    transition: $color-transitions;
+}
+
+.course-select {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    line-height: 1.5;
+    span {
+        font-weight: bold;
+        font-size: 13px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+
+.select-wrap {
+    color: #283842;
+    display: flex;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.select-option {
+    @extend %text-shared;
+    background: #f5f5f5;
+    border: 1px #e4e4e4 solid;
+    border-radius: 0;
+    input {
+        position: absolute;
+        z-index: -1;
+    }
+    div {
+        transition: $color-transitions;
+        padding: 2px 5px;
+    }
+    input:checked~div {
+        background: #a0daff;
+        border-color: #6cc6ff;
+    }
+}
+
+.select-option:focus,
+.select-option:hover {
+    outline: none;
+    div {
+        background: #caebff;
+    }
+    input:checked~div {
+        background: #52bdff;
+    }
+}

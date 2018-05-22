@@ -1,6 +1,6 @@
 {
-  "name": "uoe-lecture-downloader",
-  "version": "0.0.0",
+  "name": "echo-lecture-downloader",
+  "version": "1.1.0",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --config webpack.config.js --watch"

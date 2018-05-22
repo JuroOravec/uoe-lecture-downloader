@@ -1,3 +1,78 @@
-.popup {
-    width: 400px;
+$color-transitions: background 0.2s,
+color 0.2s,
+border-color 0.2s;
+// mixins
+%text-shared-popup {
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+html,
+body {
+    min-height: 200px;
+    min-width: 400px;
+    transition: height 0.2s, width 0.2s;
+}
+
+.download-all {
+    height: 0px;
+    width: 100%;
+    transition: height 0.2s;
+    .download-all-btn {
+        @extend %text-shared-popup;
+        position: fixed;
+        outline: none;
+        height: 60px;
+        width: 100%;
+        background: #009bff;
+        color: white;
+        cursor: pointer;
+        letter-spacing: 0.5px;
+        z-index: 20;
+        bottom: -60px;
+        left: 0;
+        transition: background 0.2s, color 0.2s, border-color 0.2s, 0.2s bottom;
+        span {
+            color: white;
+        }
+        .download-all-size {
+            display: block;
+            color: white;
+            height: 0;
+            opacity: 0;
+            transition: 0.2s opacity, 0.2s height, 0.2s margin;
+            font-size: 10px;
+            margin-top: 0;
+            overflow: hidden;
+        }
+    }
+}
+
+.download-all.active {
+    height: 60px;
+    .download-all-btn {
+        bottom: 0px;
+        .download-all-size {
+            opacity: 1;
+            height: 10px;
+            margin-top: 5px;
+        }
+    }
+}
+
+.download-all-btn:disabled {
+    background: white;
+    color: #b5b5b5;
+    border: 1px #d0d0d0 solid;
+}
+
+.download-all-size~download-button:disabled {
+    opacity: 0;
+}
+
+.download-all-btn:focus,
+.download-all-btn:hover {
+    background: #017bca;
 }
